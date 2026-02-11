@@ -1,0 +1,107 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background:#121212;
+    color:white;
+    margin:0;
+    padding:15px;
+}
+
+h1,h2{ text-align:center; }
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+button{
+    padding:8px 10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.transpose{ background:#ff9800; color:black;}
+.toggle{ background:#03a9f4; color:black;}
+.filtro{ background:#333; color:white;}
+
+input{
+    padding:8px;
+    border-radius:6px;
+    border:none;
+}
+
+.canto{
+    background:#1e1e1e;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+audio{ width:100%; margin-top:10px; }
+
+.letra{
+    line-height:2.6em;
+    font-size:18px;
+    margin-top:15px;
+}
+
+.linea{ margin-bottom:10px; }
+
+.acorde-palabra{
+    position:relative;
+    display:inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.acorde{
+    position:absolute;
+    top:-1.2em;
+    left:0;
+    font-size:0.75em;
+    color:#4caf50;
+    font-weight:bold;
+}
+
+.misa-box{
+    background:#1e1e1e;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+select{
+    padding:6px;
+    border-radius:6px;
+    margin:5px 0;
+}
+
+@media(max-width:600px){
+    .letra{ font-size:20px;}
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filtros button {
+    padding: 8px 12px;
+    margin: 4px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #e0e0e0;
+    }
+
+.filtros button:hover{
+    background: #cfcfcf;
+    }
