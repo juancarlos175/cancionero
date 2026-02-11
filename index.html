@@ -1,124 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+    
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cancionero Litúrgico Pro</title>
-
-<style>
-body{
-    font-family: Arial, sans-serif;
-    background:#121212;
-    color:white;
-    margin:0;
-    padding:15px;
-}
-
-h1,h2{ text-align:center; }
-
-.controls{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    justify-content:center;
-    margin-bottom:15px;
-}
-
-button{
-    padding:8px 10px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.transpose{ background:#ff9800; color:black;}
-.toggle{ background:#03a9f4; color:black;}
-.filtro{ background:#333; color:white;}
-
-input{
-    padding:8px;
-    border-radius:6px;
-    border:none;
-}
-
-.canto{
-    background:#1e1e1e;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
-}
-
-audio{ width:100%; margin-top:10px; }
-
-.letra{
-    line-height:2.6em;
-    font-size:18px;
-    margin-top:15px;
-}
-
-.linea{ margin-bottom:10px; }
-
-.acorde-palabra{
-    position:relative;
-    display:inline-block;
-    margin: 0;
-    padding: 0;
-}
-
-.acorde{
-    position:absolute;
-    top:-1.2em;
-    left:0;
-    font-size:0.75em;
-    color:#4caf50;
-    font-weight:bold;
-}
-
-.misa-box{
-    background:#1e1e1e;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:20px;
-}
-
-select{
-    padding:6px;
-    border-radius:6px;
-    margin:5px 0;
-}
-
-@media(max-width:600px){
-    .letra{ font-size:20px;}
-}
-
-.filtros {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.filtros button {
-    padding: 8px 12px;
-    margin: 4px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #e0e0e0;
-    }
-
-.filtros button:hover{
-    background: #cfcfcf;
-    }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cancionero JC</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🎵 Cancionero Litúrgico</h1>
+<h1>🎵 Mi Cancionero Litúrgico</h1>
 
 <!-- CONTROLES -->
 <div class="controls">
@@ -328,94 +220,9 @@ ten pie<span class="acorde-palabra"><span class="acorde">E7</span>dad</span> <st
 </div>
 
 </div>
-
-<script>
-
-// ===== BUSCADOR =====
-document.getElementById("buscar").addEventListener("input", function(){
-    let filtro=this.value.toLowerCase();
-    document.querySelectorAll(".canto").forEach(c=>{
-        let titulo=c.dataset.titulo;
-        c.style.display=titulo.includes(filtro)?"block":"none";
-    });
-});
-
-// ===== TRANSPOSICIÓN =====
-const notas=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-const equivalentes={"Db":"C#","Eb":"D#","Gb":"F#","Ab":"G#","Bb":"A#"};
-
-function normalizar(a){ return equivalentes[a]||a; }
-
-function transponer(pasos){
-    document.querySelectorAll(".acorde").forEach(el=>{
-        let t=el.innerText;
-        let m=t.match(/^([A-G][b#]?)(.*)$/);
-        if(!m)return;
-        let base=normalizar(m[1]);
-        let resto=m[2];
-        let i=notas.indexOf(base);
-        if(i===-1)return;
-        el.innerText=notas[(i+pasos+12)%12]+resto;
-    });
-}
-
-// ===== MOSTRAR/OCULTAR =====
-let visibles=true;
-function toggleAcordes(){
-    visibles=!visibles;
-    document.querySelectorAll(".acorde").forEach(a=>{
-        a.style.display=visibles?"block":"none";
-    });
-}
-
-// ===== CREAR MISA =====
-
-// llenar selects automáticamente
-document.querySelectorAll(".canto").forEach(c=>{
-    let grupo=c.dataset.grupo;
-    let id=c.dataset.id;
-    let titulo=c.querySelector("h3").innerText;
-
-    let select=document.querySelector(`select[onchange*="${grupo}"]`);
-    if(select){
-        let option=document.createElement("option");
-        option.value=id;
-        option.textContent=titulo;
-        select.appendChild(option);
-    }
-});
-
-// mostrar solo seleccionados
-function seleccionarMisa(grupo,id){
-    document.querySelectorAll(`.canto[data-grupo="${grupo}"]`)
-    .forEach(c=>{
-        c.style.display=(c.dataset.id===id)?"block":"none";
-    });
-}
-
-</script>
-
-<script>
-function filtrar(grupo) {
-  const cantos = document.querySelectorAll('.canto');
-
-  cantos.forEach(canto => {
-    if (grupo === 'todos') {
-      canto.style.display = 'block';
-    } else {
-      if (canto.dataset.grupo === grupo) {
-        canto.style.display = 'block';
-      } else {
-        canto.style.display = 'none';
-      }
-    }
-  });
-}
-</script>
-
-
+<script src="app.js"></script>
 </body>
-
 </html>
+
 
 
