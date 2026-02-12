@@ -84,12 +84,19 @@ function filtrar(grupo) {
 
 function cargarCancion(archivo) {
   fetch("canciones/" + archivo)
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("No se pudo cargar el archivo");
+      }
+      return response.text();
+    })
     .then(data => {
       document.getElementById("contenedor-cancion").innerHTML = data;
       window.scrollTo(0, 0);
     })
     .catch(error => {
       console.error("Error cargando canción:", error);
+      document.getElementById("contenedor-cancion").innerHTML =
+        "<p>Error cargando la canción.</p>";
     });
 }
