@@ -44,7 +44,7 @@ document.querySelectorAll(".canto").forEach(c=>{
     let id=c.dataset.id;
     let titulo=c.querySelector("h3").innerText;
 
-    let select=document.querySelector(`select[onchange*="${grupo}"]`);
+    let select = document.querySelector(`select[data-grupo="${grupo}"]`);
     if(select){
         let option=document.createElement("option");
         option.value=id;
