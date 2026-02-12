@@ -3,7 +3,7 @@
 document.getElementById("buscar").addEventListener("input", function(){
     let filtro=this.value.toLowerCase();
     document.querySelectorAll(".canto").forEach(c=>{
-        let titulo = c.querySelector("h3").innerText.toLowerCase();
+        let titulo=c.dataset.titulo;
         c.style.display=titulo.includes(filtro)?"block":"none";
     });
 });
@@ -44,7 +44,7 @@ document.querySelectorAll(".canto").forEach(c=>{
     let id=c.dataset.id;
     let titulo=c.querySelector("h3").innerText;
 
-    let select = document.querySelector(`select[data-grupo="${grupo}"]`);
+    let select=document.querySelector(`select[onchange*="${grupo}"]`);
     if(select){
         let option=document.createElement("option");
         option.value=id;
@@ -78,25 +78,4 @@ function filtrar(grupo) {
       }
     }
   });
-}
-
-// cargar archivos canciones
-
-function cargarCancion(archivo) {
-  fetch("canciones/" + archivo)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("No se pudo cargar el archivo");
-      }
-      return response.text();
-    })
-    .then(data => {
-      document.getElementById("contenedor-cancion").innerHTML = data;
-      window.scrollTo(0, 0);
-    })
-    .catch(error => {
-      console.error("Error cargando canción:", error);
-      document.getElementById("contenedor-cancion").innerHTML =
-        "<p>Error cargando la canción.</p>";
-    });
 }
