@@ -79,3 +79,17 @@ function filtrar(grupo) {
     }
   });
 }
+
+// cargar archivos canciones
+
+function cargarCancion(archivo) {
+  fetch("canciones/" + archivo)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("contenedor-cancion").innerHTML = data;
+      window.scrollTo(0, 0);
+    })
+    .catch(error => {
+      console.error("Error cargando canción:", error);
+    });
+}
