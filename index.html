@@ -42,42 +42,42 @@
 <h2>📅 Crear Misa del Domingo</h2>
 
 <label>Entrada:</label><br>
-<select data-grupo="entrada">
+<select id="select-entrada" onchange="seleccionarMisa('entrada', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Piedad:</label><br>
-<select onchange="seleccionarMisa('piedad', this.value)">
+<select id="select-piedad" onchange="seleccionarMisa('piedad', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Gloria:</label><br>
-<select onchange="seleccionarMisa('gloria', this.value)">
+<select id="select-gloria" onchange="seleccionarMisa('gloria', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Aleluya:</label><br>
-<select onchange="seleccionarMisa('aleluya', this.value)">
+<select id="select-aleluya" onchange="seleccionarMisa('aleluya', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Ofertorio:</label><br>
-<select onchange="seleccionarMisa('ofertorio', this.value)">
+<select id="select-ofertorio" onchange="seleccionarMisa('ofertorio', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Cordero:</label><br>
-<select onchange="seleccionarMisa('cordero', this.value)">
+<select id="select-cordero" onchange="seleccionarMisa('cordero', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Comunion:</label><br>
-<select onchange="seleccionarMisa('comunion', this.value)">
+<select id="select-comunion" onchange="seleccionarMisa('comunion', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Salida:</label><br>
-<select onchange="seleccionarMisa('salida', this.value)">
+<select id="select-salida" onchange="seleccionarMisa('salida', this.value)">
 <option value="">-- Seleccionar --</option>
 </select>
 
@@ -133,13 +133,33 @@
 
 <script src="app.js"></script>
 
+<script>
+// Populate dropdowns when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    poblarDropdowns();
+});
+
+function poblarDropdowns() {
+    const categorias = ['entrada', 'piedad', 'gloria', 'aleluya', 'ofertorio', 'cordero', 'comunion', 'salida'];
+    
+    categorias.forEach(categoria => {
+        const selectId = `select-${categoria}`;
+        const selectElement = document.getElementById(selectId);
+        
+        if (selectElement) {
+            // Get all songs from this category
+            const canciones = document.querySelectorAll(`[data-grupo="${categoria}"] button`);
+            
+            canciones.forEach(cancion => {
+                const option = document.createElement('option');
+                option.value = cancion.getAttribute('onclick').match(/'([^']+)'/)[1];
+                option.textContent = cancion.textContent.trim();
+                selectElement.appendChild(option);
+            });
+        }
+    });
+}
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
