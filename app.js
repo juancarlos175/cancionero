@@ -3,7 +3,7 @@
 document.getElementById("buscar").addEventListener("input", function(){
     let filtro=this.value.toLowerCase();
     document.querySelectorAll(".canto").forEach(c=>{
-        let titulo=c.dataset.titulo;
+        let titulo = c.querySelector("h3").innerText.toLowerCase();
         c.style.display=titulo.includes(filtro)?"block":"none";
     });
 });
