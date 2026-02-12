@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Cantos JC</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cancionero Litúrgico Pro</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🎵 Mi Cancionero JCarlos </h1>
+<h1>🎵 Cancionero Litúrgico</h1>
 
 <!-- CONTROLES -->
 <div class="controls">
@@ -42,124 +41,187 @@
 <h2>📅 Crear Misa del Domingo</h2>
 
 <label>Entrada:</label><br>
-<select id="select-entrada" onchange="seleccionarMisa('entrada', this.value)">
+<select onchange="seleccionarMisa('entrada', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Piedad:</label><br>
-<select id="select-piedad" onchange="seleccionarMisa('piedad', this.value)">
+<select onchange="seleccionarMisa('piedad', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Gloria:</label><br>
-<select id="select-gloria" onchange="seleccionarMisa('gloria', this.value)">
+<select onchange="seleccionarMisa('gloria', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Aleluya:</label><br>
-<select id="select-aleluya" onchange="seleccionarMisa('aleluya', this.value)">
+<select onchange="seleccionarMisa('aleluya', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Ofertorio:</label><br>
-<select id="select-ofertorio" onchange="seleccionarMisa('ofertorio', this.value)">
+<select onchange="seleccionarMisa('ofertorio', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Cordero:</label><br>
-<select id="select-cordero" onchange="seleccionarMisa('cordero', this.value)">
+<select onchange="seleccionarMisa('cordero', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Comunion:</label><br>
-<select id="select-comunion" onchange="seleccionarMisa('comunion', this.value)">
+<select onchange="seleccionarMisa('comunion', this.value)">
 <option value="">-- Seleccionar --</option>
 </select><br>
 
 <label>Salida:</label><br>
-<select id="select-salida" onchange="seleccionarMisa('salida', this.value)">
+<select onchange="seleccionarMisa('salida', this.value)">
 <option value="">-- Seleccionar --</option>
 </select>
 
 </div>
 
-<!-- ================= LISTA DE CANCIONES ================= -->
+<!-- ================= CANCIONES ================= -->
 
-<div id="lista-canciones">
 
-  <div class="item-cancion" data-grupo="entrada">
-    <button onclick="cargarCancion('entrada1.html')">
-      Entrada - Canto de Entrada
-    </button>
-  </div>
+<div id="canciones">
 
-  <div class="item-cancion" data-grupo="piedad">
-    <button onclick="cargarCancion('Piedad1_E.html')">
-      Piedad1_E
-    </button>
-  </div>
+<div class="canto" data-grupo="entrada" data-id="entrada1" data-titulo="canto de entrada">
+<h3>Entrada - Canto de Entrada</h3>
+<div class="letra">
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">C</span>Ven</span> Señor
+</div>
+</div>
+</div>
 
-  <div class="item-cancion" data-grupo="piedad">
-    <button onclick="cargarCancion('piedad2_Em.html')">
-      Piedad 2 (Em)
-    </button>
-  </div>
+<div class="canto" data-grupo="piedad" data-id="piedad1_E" data-titulo="piedad1_E">
+<h3>Piedad - Piedad1_E</h3>
 
-  <div class="item-cancion" data-grupo="gloria">
-    <button onclick="cargarCancion('gloria1.html')">
-      Gloria - Renovación
-    </button>
-  </div>
+<audio controls>
+    <source src="C:\Users\jcarl\OneDrive\Documents\Cantos\cancionero\audios\Piedad1_E.mp4" type="audio/mp4">
+</audio>
 
-  <div class="item-cancion" data-grupo="aleluya">
-    <button onclick="cargarCancion('aleluya1.html')">
-      Aleluya
-    </button>
-  </div>
+<div class="letra">
 
-  <div class="item-cancion" data-grupo="salida">
-    <button onclick="cargarCancion('salida1.html')">
-      Salida - Canto Final
-    </button>
-  </div>
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">E</span>Señor</span>
+<span class="acorde-palabra"><span class="acorde">S7</span>Señor</span>
+<span class="acorde-palabra"><span class="acorde">A</span>ten</span>
+<span class="acorde-palabra"><span class="acorde">E</span>Piedad</span> <strong>(2x)</strong>
+</div>
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">E</span>Cri</span>-
+<span class="acorde-palabra"><span class="acorde">S7</span>sto</span>
+<span class="acorde-palabra"><span class="acorde">A</span>ten</span>
+<span class="acorde-palabra"><span class="acorde">E</span>Piedad</span> <strong>(2x)</strong>
 
 </div>
 
-<!-- ================= CONTENEDOR DINÁMICO ================= -->
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">E</span>Señor</span>... <strong>(2x)</strong>
 
-<div id="contenedor-cancion">
-    <p>Selecciona un canto</p>
+</div>
+</div>
+</div>
+
+
+<div class="canto" data-grupo="piedad" data-id="piedad2_Em" data-titulo="piedad2_Em">
+<h3>Piedad - piedad2_Em</h3>
+
+<audio controls>
+    <source src="C:\Users\jcarl\OneDrive\Documents\Cantos\cancionero\audios\Piedad1_E.mp4" type="audio/mp4">
+</audio>
+
+<div class="letra">
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">Em</span>Señor</span>
+ten pie<span class="acorde-palabra"><span class="acorde">Am</span>dad</span>
+<span class="acorde-palabra"><span class="acorde">Em</span>ten</span>
+<span class="acorde-palabra"><span class="acorde">S7</span>pie</span><span class="acorde-palabra"><span class="acorde">Em</span>dad</span> <strong>(2x)</strong>
+</div>
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">G</span>Cristo</span>
+ten pie<span class="acorde-palabra"><span class="acorde">Am</span>dad</span>
+<span class="acorde-palabra"><span class="acorde">Em</span>ten</span>
+<span class="acorde-palabra"><span class="acorde">S7</span>pie</span><span class="acorde-palabra"><span class="acorde">Em</span>dad</span> <strong>(2x)</strong>
+
+</div>
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">Em</span>Señor</span>... <strong>(2x)</strong>
+
+</div>
+</div>
+</div>
+
+
+<div class="canto" data-grupo="piedad" data-id="piedad3_Am" data-titulo="piedad3_Am">
+<h3>Piedad - piedad2_Em</h3>
+
+<audio controls>
+    <source src="C:\Users\jcarl\OneDrive\Documents\Cantos\cancionero\audios\Piedad1_E.mp4" type="audio/mp4">
+</audio>
+
+<div class="letra">
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">Am</span>Señor</span>
+ten pie<span class="acorde-palabra"><span class="acorde">A7</span>dad</span>
+<span class="acorde-palabra"><span class="acorde">Dm</span>ten</span> piedad
+<span class="acorde-palabra"><span class="acorde">G7</span>Señor</span> ten pie<span class="acorde-palabra"><span class="acorde">C</span>da-</span><span class="acorde-palabra"><span class="acorde">E7</span>ad</span> <strong>(2x)</strong>
+</div>
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">Am</span>Cristo</span>
+ten piedad <span class="acorde-palabra"><span class="acorde">G</span>ten</span> piedad
+<span class="acorde-palabra"><span class="acorde">F</span>Cristo</span>
+ten pie<span class="acorde-palabra"><span class="acorde">E7</span>dad</span> <strong>(2x)</strong>
+</div>
+
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">Am</span>Señor</span>... <strong>(2x)</strong>
+
+</div>
+</div>
+</div>
+
+
+<div class="canto" data-grupo="gloria" data-id="gloria1" data-titulo="gloria renovacion">
+<h3>Gloria - Renovacion</h3>
+<div class="letra">
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">G</span>Gloria</span> Gloria
+</div>
+</div>
+</div>
+
+<div class="canto" data-grupo="aleluya" data-id="aleluya1" data-titulo="aleluya">
+<h3>Aleluya</h3>
+<div class="letra">
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">D</span>Aleluya</span>
+</div>
+</div>
+</div>
+
+<div class="canto" data-grupo="salida" data-id="salida1" data-titulo="canto final">
+<h3>Salida - Canto Final</h3>
+<div class="letra">
+<div class="linea">
+<span class="acorde-palabra"><span class="acorde">A</span>Vamos</span> a cantar
+</div>
+</div>
+</div>
+
 </div>
 
 <script src="app.js"></script>
 
-<script>
-// Populate dropdowns when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    poblarDropdowns();
-});
-
-function poblarDropdowns() {
-    const categorias = ['entrada', 'piedad', 'gloria', 'aleluya', 'ofertorio', 'cordero', 'comunion', 'salida'];
-    
-    categorias.forEach(categoria => {
-        const selectId = `select-${categoria}`;
-        const selectElement = document.getElementById(selectId);
-        
-        if (selectElement) {
-            // Get all songs from this category
-            const canciones = document.querySelectorAll(`[data-grupo="${categoria}"] button`);
-            
-            canciones.forEach(cancion => {
-                const option = document.createElement('option');
-                option.value = cancion.getAttribute('onclick').match(/'([^']+)'/)[1];
-                option.textContent = cancion.textContent.trim();
-                selectElement.appendChild(option);
-            });
-        }
-    });
-}
-</script>
 
 </body>
 </html>
